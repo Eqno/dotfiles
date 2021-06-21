@@ -1,1 +1,1 @@
-# myconfig-manjaro
+# myconfig
