@@ -38,6 +38,8 @@ map<F12> :w<CR>:!cargo run<CR>
 map<C-s> :w<CR>
 map<C-q> :wq<CR>
 map<C-a> gg<S-v><S-g>
+map<C-x> "+yy
+map<C-w> :q<CR>
 
 map!<F7> <ESC>:w<CR>
 map!<F8> <ESC>:wq<CR>
@@ -48,7 +50,8 @@ map!<F12> <ESC>:!cargo run<CR>
 map!<C-s> <ESC>:w<CR>i
 map!<C-q> <ESC>:wq<CR>
 map!<C-a> <ESC>gg<S-v><S-g>
+map!<C-w> <ESC>:q<CR>
 
 " Python
 let g:python_host_prog  = '/usr/bin/python2'
-let g:python3_host_prog = '/opt/anaconda/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'

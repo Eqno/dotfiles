@@ -1,0 +1,36 @@
+##
+## Manjaro Linux default mirrorlist
+## Generated on 2021-07-16 19:36
+##
+## Please use 'pacman-mirrors -f [NUMBER] [NUMBER]' to modify mirrorlist
+## (Use 0 for all mirrors)
+##
+
+## Country : Uruguay
+## Server = https://manjaro.repo.cure.edu.uy/stable/$repo/$arch
+
+## Country : Canada
+## Server = https://osmirror.org/manjaro/stable/$repo/$arch
+
+## Country : Brazil
+## Server = https://manjaro.c3sl.ufpr.br/stable/$repo/$arch
+
+## Country : Switzerland
+## Server = https://mirror.init7.net/manjaro/stable/$repo/$arch
+
+## Country : United_Kingdom
+## Server = http://manjaro.mirrors.uk2.net/stable/$repo/$arch
+
+## Country : United_States
+## Server = https://repo.ialab.dsu.edu/manjaro/stable/$repo/$arch
+
+## Country : Austria
+## Server = http://mirror.easyname.at/manjaro/stable/$repo/$arch
+
+## Country : Chile
+## Server = https://mirror1.cl.netactuate.com/manjaro/stable/$repo/$arch
+
+## Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/$repo/os/$arch
+
+Server = https://mirrors.sjtug.sjtu.edu.cn/manjaro/stable/$repo/$arch
+
