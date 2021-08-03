@@ -5,7 +5,12 @@ sudo cp ./profile /etc/
 sudo cp ./pacman.conf /etc/
 sudo cp ./mirrorlist /etc/pacman.d/
 
-sudo pacman -S vim neovim python3 python2 xsel nodejs
+sudo pacman -S vim neovim python3 python2 xsel nodejs clash
+cp ./update-clash ~/.local/bin/
+update-clash
+clash
+
+sudo cp ./proxychains.conf /etc/
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

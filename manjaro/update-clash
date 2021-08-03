@@ -1,0 +1,5 @@
+#!/bin/sh
+
+URL=https://www.ccsub.cc/link/AL7c3qLaN9kMyntB?mu=4
+
+curl ${URL} > ~/.config/clash/config.yaml 
