@@ -70,6 +70,8 @@ bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+
+# print screen
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 # bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
@@ -221,6 +223,9 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="jetbrains-idea-ce"] border normal
 for_window [title="Scientific EqnoCal"] floating enable border normal
+
+#tmp
+for_window [title="长途汽车站票务信息管理系统"] floating enable border normal
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -433,3 +438,15 @@ exec --no-startup-id clash
 exec --no-startup-id xset dpms 300
 exec_always --no-startup-id xset dpms 300
 exec_always --no-startup-id xset b off
+
+
+bindsym Mod1+h exec xdotool mousemove_relative -- -50 0
+bindsym Mod1+j exec xdotool mousemove_relative 0 50
+bindsym Mod1+k exec xdotool mousemove_relative -- 0 -50
+bindsym Mod1+l exec xdotool mousemove_relative 50 0
+bindsym Mod1+Shift+h exec xdotool mousemove_relative -- -10 0
+bindsym Mod1+Shift+j exec xdotool mousemove_relative 0 10
+bindsym Mod1+Shift+k exec xdotool mousemove_relative -- 0 -10
+bindsym Mod1+Shift+l exec xdotool mousemove_relative 10 0
+bindsym Mod1+c exec xdotool click 1
+bindsym Mod1+Shift+c exec xdotool click 3

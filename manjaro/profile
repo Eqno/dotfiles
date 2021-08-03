@@ -56,7 +56,7 @@ unset MANPATH
 
 # 8u101
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_101
-export PATH=$JAVA_HOME/bin
+# export PATH=$JAVA_HOME/bin
 export CLASSPATH=$JAVA_HOME/lib
 
 # maven
