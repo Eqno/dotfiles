@@ -8,7 +8,8 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
+# default_border pixel 1
+default_border none
 default_floating_border normal
 
 # Hide borders
@@ -222,10 +223,10 @@ for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="jetbrains-idea-ce"] border normal
-for_window [title="Scientific EqnoCal"] floating enable border normal
 
 #tmp
 for_window [title="长途汽车站票务信息管理系统"] floating enable border normal
+for_window [title="Scientific EqnoCal"] floating enable border normal
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -350,9 +351,12 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background #222D31
-        statusline #F9FAF9
-        separator  #454947
+        # background #222D31
+        background #000000
+        # statusline #F9FAF9
+        statusline #000000
+        # separator  #454947
+        separator  #000000
 
 #                      border  backgr. text
         focused_workspace  #F9FAF9 #16a085 #292F34
@@ -381,8 +385,8 @@ bar {
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
-gaps outer -2
+gaps inner 7
+gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
