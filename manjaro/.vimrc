@@ -1,14 +1,25 @@
-" Start
+" -------------------------------------------
+" [Start]
 filetype plugin indent on
 syntax on
+set number
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set hlsearch
+set autoread
+set nowrap
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+autocmd FileType c,cpp,rust inoremap {<CR> {<CR>}<Esc>O
+" -------------------------------------------
 
-" Plugs
+" -------------------------------------------
+" [Plugs]
 call plug#begin('~/.vim/plugged')
 
 " BaseOn
 Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -25,8 +36,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-loc
 " appearance
 Plug 'crusoexia/vim-monokai'
 Plug 'Yggdroot/indentLine'
-
-" status bar
+Plug 'vim-airline/vim-airline'
 
 " annotation
 Plug 'scrooloose/nerdcommenter'
@@ -44,53 +54,27 @@ Plug 'majutsushi/tagbar'
 " c++ highlight
 Plug 'octol/vim-cpp-enhanced-highlight'
 
-call plug#end()
+" supertab
+Plug 'ervandew/supertab'
 
-" PlugSetting
+call plug#end()
+" -------------------------------------------
+
+" -------------------------------------------
+" [PlugSetting]
 " Rust
 let g:rustfmt_autosave = 1
 
-" HotKey
-map<F7> :w<CR>
-map<F8> :wq<CR>
-map<F9> :w<CR>:!cargo fmt<CR>
-map<F10> :w<CR>:!cargo clippy<CR>
-map<F11> :w<CR>:!cargo build<CR>
-map<F12> :w<CR>:!cargo run<CR>
-map<C-s> :w<CR>
-map<C-q> :q<CR>
-map<C-a> gg<S-v><S-g>
-map<C-x> "+yy
-map<C-w> :wq<CR>
-
-map!<F9> <ESC>:!cargo fmt<CR>
-map!<F10> <ESC>:!cargo clippy<CR>
-map!<F11> <ESC>:!cargo build<CR>
-map!<F12> <ESC>:!cargo run<CR>
-map!<C-s> <ESC>:w<CR>i
-map!<C-q> <ESC>:q<CR>
-map!<C-a> <ESC>gg<S-v><S-g>
-map!<C-w> <ESC>:wq<CR>
-map!<tab> <C-n>
-
-vmap<tab> >gv
-vmap<s-tab> <gv
 
 " Python
 let g:python_host_prog  = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 
-" line number
-set nu
-
-" Tab
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent
 
 " appearance
 " colo monokai
+" colorscheme gruvbox
+let g:airline_powerline_fonts = 1
 
 " annotation
 let g:NERDSpaceDelims = 1
@@ -124,3 +108,66 @@ nnoremap <silent> <F4> :TagbarToggle<CR>
 
 " c++ highlight
 
+" supertab
+let g:SuperTabDefaultCompletionType="context"
+
+" -------------------------------------------
+
+
+" -------------------------------------------
+" [HotKeys]
+map<Space>r :w!<CR>:call RunCode()<CR>
+map<F8> :w!<CR>:call RunCode()<CR>
+map<F9> :w<CR>:!cargo fmt<CR>
+map<F10> :w<CR>:!cargo clippy<CR>
+map<F11> :w<CR>:!cargo build<CR>
+map<F12> :w<CR>:!cargo run<CR>
+map<C-s> :w<CR>
+map<C-q> :q<CR>
+map<C-a> gg<S-v><S-g>
+map<C-x> "+yy
+map<C-w> :wq<CR>
+map<C-n> :nohl<CR>
+
+map!<Space>r <Esc>:w!<CR>:call RunCode()<CR>
+map!<F8> <Esc>:w!<CR>:call RunCode()<CR>
+map!<F9> <ESC>:!cargo fmt<CR>
+map!<F10> <ESC>:!cargo clippy<CR>
+map!<F11> <ESC>:!cargo build<CR>
+map!<F12> <ESC>:!cargo run<CR>
+map!<C-s> <ESC>:w<CR>i
+map!<C-q> <ESC>:q<CR>
+map!<C-a> <ESC>gg<S-v><S-g>
+map!<C-w> <ESC>:wq<CR>
+
+vmap<tab> >gv
+vmap<s-tab> <gv
+" -------------------------------------------
+
+
+" -------------------------------------------
+" [RunCode]
+func RunCode()
+	if has("nvim")
+		if &filetype == 'c'
+			exec "belowright split term://bash -c 'gcc % && ./a.out'"
+		elseif &filetype == 'cpp'
+			exec "belowright split term://bash -c 'g++ % && ./a.out'"
+		elseif &filetype == 'python'
+			exec "belowright split term://python %"
+		elseif &filetype == 'tex'
+			exec "belowright split term://xelatex %"
+		endif
+	else
+		if &filetype == 'c'
+			exec 'terminal bash -c "gcc % && ./a.out"'
+		elseif &filetype == 'cpp'
+			exec 'terminal bash -c "g++ % && ./a.out"'
+		elseif &filetype == 'python'
+			exec 'terminal python %'
+		elseif &filetype == 'tex'
+			exec 'terminal xelatex %'
+		endif
+	endif
+endfunc
+" -------------------------------------------
