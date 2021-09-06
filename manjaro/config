@@ -440,6 +440,7 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id fcitx
 exec --no-startup-id clash
 exec --no-startup-id xset dpms 300
+exec --no-startup-id xinput set-prop 13 301 1
 exec_always --no-startup-id xset dpms 300
 exec_always --no-startup-id xset b off
 
