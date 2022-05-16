@@ -68,4 +68,16 @@ ctl.!default {
 
 ### GitHub
 
-`ssh-keygen`，`vim ~/.ssh/id_rsa.pub`，复制出来，粘贴到[GitHub](https://github.com/settings/keys)。
+`ssh-keygen`，`vim ~/.ssh/id_rsa.pub`，复制出来，粘贴到[GitHub](https://github.com/settings/keys)，`git config --global core.editor /usr/bin/nvim`。
+
+### 壁纸
+
+`vim ~/.config/nitrogen/bg-saved.cfg`，更改壁纸，`sudo vim slick-greeter.conf`，更改锁屏（自己的图片拖到`/usr/share/slick-greeter/`下，否则没有权限）。
+
+### 终端
+
+`sudo pacman -S compton`，i3 config 自启 compton，改 .Xresources。
+
+### 其他
+
+i3 config 关闭 conky。
