@@ -1,14 +1,11 @@
 {
-    "http.proxy": "http://127.0.0.1:7890",   
+    // Plugins: Codeium, GitLens, CodeRunner, C++, Unity, Python, CMake, Clangd
     "C_Cpp.intelliSenseEngine": "disabled",
     // "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
-    
-    "C_Cpp.default.compilerPath": "D:\\Softwares\\CodeBlocks\\MinGW\\bin\\g++.exe",
+    "C_Cpp.default.compilerPath": "C:\\Program Files\\LLVM\\bin\\clang++.exe",
     "clangd.path": "C:\\Program Files\\LLVM\\bin\\clangd.exe",
-
     // "editor.suggest.snippetsPreventQuickSuggestions": false,
     "C_Cpp.codeAnalysis.clangTidy.enabled": false,
-
     "code-runner.runInTerminal": true,
     "code-runner.executorMap": {
         // "c": "cd $dir && gcc -o \"$fileNameWithoutExt.exe\" \"$fileName\" -Wall -O2 -D FREEGLUT_STATIC -static-libgcc -static -std=c17 -lfreeglut_static -lopengl32 -lwinmm -lgdi32 -lglu32 && \"$fileNameWithoutExt.exe\"",
@@ -17,16 +14,14 @@
         "python": "cd $dir ; python '$fileName'",
         "csharp": "cd $dir ; if ($?) { csc /nologo /utf8output '$fileName' } ; if ($?) { .\\'$fileNameWithoutExt.exe' }",
         // "cpp": "cd $dir ; if ($?) { g++ '$fileName' -o '$fileNameWithoutExt.exe' -Wall -O2 -std=c++17 } ; if ($?) { .\\'$fileNameWithoutExt.exe' }",
-        "cpp": "cd $dir ; if ($?) { g++ '$fileName' -o '$fileNameWithoutExt.exe' -std=c++17 -O2 -Wsign-compare -Werror=return-type } ; if ($?) { .\\'$fileNameWithoutExt.exe' }",
-        "asm": "cd $dir ; if ($?) { g++ -c '$fileName' -o '$fileNameWithoutExt.o' } ; if ($?) { g++ .\\'$fileNameWithoutExt.o' -o '$fileNameWithoutExt.exe' } if ($?) { .\\'$fileNameWithoutExt.exe' }",
+        "cpp": "cd $dir ; if ($?) { clang++ '$fileName' -o '$fileNameWithoutExt.exe' -std=c++17 -O2 -Wsign-compare -Werror=return-type } ; if ($?) { .\\'$fileNameWithoutExt.exe' }",
+        "asm": "cd $dir ; if ($?) { clang++ -c '$fileName' -o '$fileNameWithoutExt.o' } ; if ($?) { clang++ .\\'$fileNameWithoutExt.o' -o '$fileNameWithoutExt.exe' } if ($?) { .\\'$fileNameWithoutExt.exe' }",
     },
     "code-runner.saveFileBeforeRun": true,
     "code-runner.clearPreviousOutput": true,
-
     "git.autofetch": true,
     "files.autoGuessEncoding": true,
     "editor.suggestSelection": "first",
-
     "C_Cpp.default.includePath": [
         "${workspaceFolder}",
         "${workspaceFolder}/src",
@@ -38,10 +33,7 @@
         "-I${workspaceFolder}/include"
     ],
     "terminal.integrated.enableMultiLinePasteWarning": false,
-
-    "workbench.colorTheme": "Black",
-
-    "python.defaultInterpreterPath": "D:\\Softwares\\Anaconda\\python.exe",
     "code-runner.defaultLanguage": "asm",
-    "cmake.configureOnOpen": true
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
 }
